@@ -1,0 +1,21 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      id-token: write # OIDC token for RubyGems trusted publishing
+      contents: write # rake release pushes the tag
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+      - run: bundle exec rake test
+      - uses: rubygems/release-gem@v1
