@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- First release published through GitHub Actions trusted publishing. No library changes.
+
 ## Unreleased
 
 - Batch scrape: `scrape(url: [...])`, `scrape_batch`, `scrape_batch_async`, `get_batch`, `get_batch_errors`, `cancel_batch`.
